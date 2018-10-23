@@ -1,19 +1,146 @@
-<h1>{{title}}</h1>
-<div id="total">
-    <p style="font-size: 40px; font-weight: bold;">Karlo: {{karloTotalPoints}}</p>
-    <p style="font-size: 40px; font-weight: bold;">Andy: {{andyTotalPoints}}</p>
-</div>
-<div id="jets">
-    <p style="font-weight: bold">JETS</p>
-    <p>Scheifele: {{scheifeleG}}G  {{scheifeleA}}A  {{scheifelePt}}PTS</p>
-    <p>Wheeler: {{wheelerG}}G  {{wheelerA}}A  {{wheelerPt}}PTS</p>
-    <p>Laine: {{laineG}}G  {{laineA}}A  {{lainePt}}PTS</p>
-</div>
 
-<div id="stars">
-    <p style="font-weight: bold">STARS</p>
-    <p>Seguin: {{seguinG}}G  {{seguinA}}A  {{seguinPt}}PTS</p>
-    <p>Benn: {{bennG}}G  {{bennA}}A  {{bennPt}}PTS</p>
-    <p>radulov: {{radulovG}}G  {{radulovA}}A  {{radulovPt}}PTS</p>
+<div id="app">
+    <v-app id="inspire">
+        <v-navigation-drawer
+
+                fixed
+                v-model="drawer"
+                app
+        >
+            <v-list dense>
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>home</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Home</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>star</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Versus</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>book</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Stats</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>gamepad</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>TeamBuilder</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-navigation-drawer>
+        <v-toolbar color="indigo" dark fixed app>
+            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <v-toolbar-title>{{title}}</v-toolbar-title>
+        </v-toolbar>
+        <v-content>
+            <v-container fluid fill-height>
+                <v-layout>
+                    <!--Content of website-->
+
+                <div>
+                    <h1>{{title}}</h1>
+                    <div>
+                        <p style="font-size: 40px; font-weight: bold;">Karlo(jets): {{karloTotalPoints}}</p>
+                        <p style="font-size: 40px; font-weight: bold;">Andy(avs): {{andyTotalPoints}}</p>
+                        <p style="font-size: 40px; font-weight: bold;">Seb(bruins): {{sebTotalPoints}}</p>
+                    </div>
+                </div>
+
+                <div id="jets">
+                    <p style="font-weight: bold">Jets</p>
+                    <p>Scheifele: {{scheifeleG}}G  {{scheifeleA}}A  {{scheifelePt}}PTS</p>
+                    <p>Wheeler: {{wheelerG}}G  {{wheelerA}}A  {{wheelerPt}}PTS</p>
+                    <p>Connor: {{connorG}}G  {{connorA}}A  {{connorPt}}PTS</p>
+                </div>
+
+                <div div="avs">
+                    <p style="font-weight: bold">Avs</p>
+                    <p>Mackinnon: {{mackinnonG}}G  {{mackinnonA}}A  {{mackinnonPt}}PTS</p>
+                    <p>Rantanen: {{rantanenG}}G  {{rantanenA}}A  {{rantanenPt}}PTS</p>
+                    <p>Landeskog: {{landeskogG}}G  {{landeskogA}}A  {{landeskogPt}}PTS</p>
+                </div>
+
+                 <div div="bruins">
+                    <p style="font-weight: bold">Bruins</p>
+                    <p>Bergeron: {{bergeronG}}G  {{bergeronA}}A  {{bergeronPt}}PTS</p>
+                    <p>Marchand: {{marchandG}}G  {{marchandA}}A  {{marchandPt}}PTS</p>
+                    <p>Pastrnak: {{pastrnakG}}G  {{pastrnakA}}A  {{pastrnakPt}}PTS</p>
+                </div>
+
+                <!--<canvas id="myChart" width="20" height="20"></canvas>-->
+
+                </v-layout>
+            </v-container>
+
+
+
+        </v-content>
+        <v-footer color="indigo" app inset>
+            <span class="white--text">&copy; 2017</span>
+        </v-footer>
+    </v-app>
 </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+
+<!--vuetify-->
+<script>
+    new Vue({
+        el: '#app',
+        data: () => ({
+            drawer: false
+        })
+    })
+</script>
+<!--vue-->
+
+
+<script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Scheifele", "Wheeler", "Laine"],
+            datasets: [{
+                label: 'Jets Top Line',
+                data: [{{scheifelePt}},{{wheelerPt}},{{lainePt}}],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+//                    'rgba(75, 192, 192, 0.2)',
+//                    'rgba(153, 102, 255, 0.2)',
+//                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+//                    'rgba(75, 192, 192, 1)',
+//                    'rgba(153, 102, 255, 1)',
+//                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        }
+
+    });
+</script>
 

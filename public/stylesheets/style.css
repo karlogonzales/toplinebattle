@@ -10,7 +10,14 @@ a {
   float: left;
   width: 50%;
   overflow: hidden;
+  padding: 5px;
+  border: red;
 }
-#stars{
+#avs{
   overflow: hidden;
+  padding: 5px;
+}
+#bruins{
+  overflow: hidden;
+  padding: 5px;
 }
