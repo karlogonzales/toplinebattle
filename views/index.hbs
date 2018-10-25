@@ -1,12 +1,6 @@
-
 <div id="app">
     <v-app id="inspire">
-        <v-navigation-drawer
-
-                fixed
-                v-model="drawer"
-                app
-        >
+        <v-navigation-drawer fixed v-model="drawer" app>
             <v-list dense>
                 <v-list-tile @click="">
                     <v-list-tile-action>
@@ -50,47 +44,99 @@
             <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
         <v-content>
-            <v-container fluid fill-height>
-                <v-layout>
-                    <!--Content of website-->
+                <v-container grid-list-md>
+                    <v-layout column>
+                        <v-flex xs6 pa-4>
+                            <v-card>
+                                <v-layout row align-center justtify-center>
+                                    <v-flex>
+                                                <div class="headline text-xs-center" >
+                                                    Karlo: {{karloTotalPoints}}
+                                                </div>
 
-                <div>
-                    <h1>{{title}}</h1>
-                    <div>
-                        <p style="font-size: 40px; font-weight: bold;">Karlo(jets): {{karloTotalPoints}}</p>
-                        <p style="font-size: 40px; font-weight: bold;">Andy(avs): {{andyTotalPoints}}</p>
-                        <p style="font-size: 40px; font-weight: bold;">Seb(bruins): {{sebTotalPoints}}</p>
-                    </div>
-                </div>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-card-title primary-title>
+                                            <div>
+                                                <div class="headline">
+                                                    Jets
+                                                </div>
+                                                <div>
+                                                    Scheifele: {{scheifeleG}}G  {{scheifeleA}}A  {{scheifelePt}}PTS
+                                                </div>
+                                                <div>
+                                                    Wheeler: {{wheelerG}}G  {{wheelerA}}A  {{wheelerPt}}PTS
+                                                </div>
+                                                <div>
+                                                    Connor: {{connorG}}G  {{connorA}}A  {{connorPt}}PTS
+                                                </div>
+                                            </div>
+                                        </v-card-title>
+                                    </v-flex>
+                                </v-layout>
+                            </v-card>
+                        </v-flex>
 
-                <div id="jets">
-                    <p style="font-weight: bold">Jets</p>
-                    <p>Scheifele: {{scheifeleG}}G  {{scheifeleA}}A  {{scheifelePt}}PTS</p>
-                    <p>Wheeler: {{wheelerG}}G  {{wheelerA}}A  {{wheelerPt}}PTS</p>
-                    <p>Connor: {{connorG}}G  {{connorA}}A  {{connorPt}}PTS</p>
-                </div>
-
-                <div div="avs">
-                    <p style="font-weight: bold">Avs</p>
-                    <p>Mackinnon: {{mackinnonG}}G  {{mackinnonA}}A  {{mackinnonPt}}PTS</p>
-                    <p>Rantanen: {{rantanenG}}G  {{rantanenA}}A  {{rantanenPt}}PTS</p>
-                    <p>Landeskog: {{landeskogG}}G  {{landeskogA}}A  {{landeskogPt}}PTS</p>
-                </div>
-
-                 <div div="bruins">
-                    <p style="font-weight: bold">Bruins</p>
-                    <p>Bergeron: {{bergeronG}}G  {{bergeronA}}A  {{bergeronPt}}PTS</p>
-                    <p>Marchand: {{marchandG}}G  {{marchandA}}A  {{marchandPt}}PTS</p>
-                    <p>Pastrnak: {{pastrnakG}}G  {{pastrnakA}}A  {{pastrnakPt}}PTS</p>
-                </div>
-
-                <!--<canvas id="myChart" width="20" height="20"></canvas>-->
-
-                </v-layout>
-            </v-container>
-
-
-
+                        <v-flex xs6 pa-4>
+                            <v-card>
+                                <v-layout align-center justify-center>
+                                    <v-flex>
+                                        <div class="headline text-xs-center" >
+                                            Andy: {{andyTotalPoints}}
+                                        </div>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-card-title primary-title>
+                                            <div>
+                                                <div class="headline">
+                                                    Avalanche
+                                                </div>
+                                                <div>
+                                                    Mackinnon: {{mackinnonG}}G  {{mackinnonA}}A  {{mackinnonPt}}PTS
+                                                </div>
+                                                <div>
+                                                    Rantanen: {{rantanenG}}G  {{rantanenA}}A  {{rantanenPt}}PTS
+                                                </div>
+                                                <div>
+                                                    Landeskog: {{landeskogG}}G  {{landeskogA}}A  {{landeskogPt}}PTS
+                                                </div>
+                                            </div>
+                                        </v-card-title>
+                                    </v-flex>
+                                </v-layout>
+                            </v-card>
+                        </v-flex>
+                        <v-flex xs6 pa-4>
+                            <v-card>
+                                <v-layout align-center justify-center>
+                                    <v-flex>
+                                        <div class="headline text-xs-center" >
+                                            Phil: {{sebTotalPoints}}
+                                        </div>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-card-title primary-title>
+                                            <div>
+                                                <div class="headline" >
+                                                    Bruins
+                                                </div>
+                                                <div>
+                                                    Bergeron: {{bergeronG}}G  {{bergeronA}}A  {{bergeronPt}}PTS
+                                                </div>
+                                                <div>
+                                                    Marchand: {{marchandG}}G  {{marchandA}}A  {{marchandPt}}PTS
+                                                </div>
+                                                <div>
+                                                    Pastrnak: {{pastrnakG}}G  {{pastrnakA}}A  {{pastrnakPt}}PTS
+                                                </div>
+                                            </div>
+                                        </v-card-title>
+                                    </v-flex>
+                                </v-layout>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
         </v-content>
         <v-footer color="indigo" app inset>
             <span class="white--text">&copy; 2017</span>
