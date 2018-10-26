@@ -51,7 +51,7 @@
                                 <v-layout row align-center justtify-center>
                                     <v-flex>
                                                 <div class="headline text-xs-center" >
-                                                    Karlo: {{karloTotalPoints}}
+                                                    Karlo: {{team2TotalPoints}}
                                                 </div>
 
                                     </v-flex>
@@ -62,13 +62,13 @@
                                                     Jets
                                                 </div>
                                                 <div>
-                                                    Scheifele: {{scheifeleG}}G  {{scheifeleA}}A  {{scheifelePt}}PTS
+                                                    {{team2Data/[0].lastName}}: {{team2Data/[0].latestPlayerStats.G}}G  {{team2Data/[0].latestPlayerStats.A}}A  {{team2Data/[0].latestPlayerStats.TP}}PTS
                                                 </div>
                                                 <div>
-                                                    Wheeler: {{wheelerG}}G  {{wheelerA}}A  {{wheelerPt}}PTS
+                                                    {{team2Data/[1].lastName}}: {{team2Data/[1].latestPlayerStats.G}}G  {{team2Data/[1].latestPlayerStats.A}}A  {{team2Data/[1].latestPlayerStats.TP}}PTS
                                                 </div>
                                                 <div>
-                                                    Connor: {{connorG}}G  {{connorA}}A  {{connorPt}}PTS
+                                                    {{team2Data/[2].lastName}}: {{team2Data/[2].latestPlayerStats.G}}G  {{team2Data/[2].latestPlayerStats.A}}A  {{team2Data/[2].latestPlayerStats.TP}}PTS
                                                 </div>
                                             </div>
                                         </v-card-title>
@@ -82,7 +82,7 @@
                                 <v-layout align-center justify-center>
                                     <v-flex>
                                         <div class="headline text-xs-center" >
-                                            Andy: {{andyTotalPoints}}
+                                            Andy: {{team1TotalPoints}}
                                         </div>
                                     </v-flex>
                                     <v-flex>
@@ -92,13 +92,13 @@
                                                     Avalanche
                                                 </div>
                                                 <div>
-                                                    Mackinnon: {{mackinnonG}}G  {{mackinnonA}}A  {{mackinnonPt}}PTS
+                                                    {{team1Data/[0].lastName}}: {{team1Data/[0].latestPlayerStats.G}}G  {{team1Data/[0].latestPlayerStats.A}}A  {{team1Data/[0].latestPlayerStats.TP}}PTS
                                                 </div>
                                                 <div>
-                                                    Rantanen: {{rantanenG}}G  {{rantanenA}}A  {{rantanenPt}}PTS
+                                                    {{team1Data/[1].lastName}}: {{team1Data/[1].latestPlayerStats.G}}G  {{team1Data/[1].latestPlayerStats.A}}A  {{team1Data/[1].latestPlayerStats.TP}}PTS
                                                 </div>
                                                 <div>
-                                                    Landeskog: {{landeskogG}}G  {{landeskogA}}A  {{landeskogPt}}PTS
+                                                    {{team1Data/[2].lastName}}: {{team1Data/[2].latestPlayerStats.G}}G  {{team1Data/[2].latestPlayerStats.A}}A  {{team1Data/[2].latestPlayerStats.TP}}PTS
                                                 </div>
                                             </div>
                                         </v-card-title>
@@ -111,7 +111,7 @@
                                 <v-layout align-center justify-center>
                                     <v-flex>
                                         <div class="headline text-xs-center" >
-                                            Phil: {{sebTotalPoints}}
+                                            Phil: {{team3TotalPoints}}
                                         </div>
                                     </v-flex>
                                     <v-flex>
@@ -121,13 +121,42 @@
                                                     Bruins
                                                 </div>
                                                 <div>
-                                                    Bergeron: {{bergeronG}}G  {{bergeronA}}A  {{bergeronPt}}PTS
+                                                    {{team3Data/[0].lastName}}: {{team3Data/[0].latestPlayerStats.G}}G  {{team3Data/[0].latestPlayerStats.A}}A  {{team3Data/[0].latestPlayerStats.TP}}PTS
                                                 </div>
                                                 <div>
-                                                    Marchand: {{marchandG}}G  {{marchandA}}A  {{marchandPt}}PTS
+                                                    {{team3Data/[1].lastName}}: {{team3Data/[1].latestPlayerStats.G}}G  {{team3Data/[1].latestPlayerStats.A}}A  {{team3Data/[1].latestPlayerStats.TP}}PTS
                                                 </div>
                                                 <div>
-                                                    Pastrnak: {{pastrnakG}}G  {{pastrnakA}}A  {{pastrnakPt}}PTS
+                                                    {{team3Data/[2].lastName}}: {{team3Data/[2].latestPlayerStats.G}}G  {{team3Data/[2].latestPlayerStats.A}}A  {{team3Data/[2].latestPlayerStats.TP}}PTS
+                                                </div>
+                                            </div>
+                                        </v-card-title>
+                                    </v-flex>
+                                </v-layout>
+                            </v-card>
+                        </v-flex>
+                        <v-flex xs6 pa-4>
+                            <v-card>
+                                <v-layout align-center justify-center>
+                                    <v-flex>
+                                        <div class="headline text-xs-center" >
+                                            Seb: {{team4TotalPoints}}
+                                        </div>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-card-title primary-title>
+                                            <div>
+                                                <div class="headline" >
+                                                    Hurricanes
+                                                </div>
+                                                <div>
+                                                    {{team4Data/[0].lastName}}: {{team4Data/[0].latestPlayerStats.G}}G  {{team4Data/[0].latestPlayerStats.A}}A  {{team4Data/[0].latestPlayerStats.TP}}PTS
+                                                </div>
+                                                <div>
+                                                    {{team4Data/[1].lastName}}: {{team4Data/[1].latestPlayerStats.G}}G  {{team4Data/[1].latestPlayerStats.A}}A  {{team4Data/[1].latestPlayerStats.TP}}PTS
+                                                </div>
+                                                <div>
+                                                    {{team4Data/[2].lastName}}: {{team4Data/[2].latestPlayerStats.G}}G  {{team4Data/[2].latestPlayerStats.A}}A  {{team4Data/[2].latestPlayerStats.TP}}PTS
                                                 </div>
                                             </div>
                                         </v-card-title>
@@ -151,7 +180,10 @@
     new Vue({
         el: '#app',
         data: () => ({
-            drawer: false
+            drawer: false,
+            team1Pts: {{team1Data/[0].latestPlayerStats.TP}} + {{team1Data/[1].latestPlayerStats.TP}} + {{team1Data/[2].latestPlayerStats.TP}},
+            team2Pts: {{team2Data/[0].latestPlayerStats.TP}} + {{team2Data/[1].latestPlayerStats.TP}} + {{team2Data/[2].latestPlayerStats.TP}},
+            team3Pts: {{team3Data/[0].latestPlayerStats.TP}} + {{team3Data/[1].latestPlayerStats.TP}} + {{team3Data/[2].latestPlayerStats.TP}},
         })
     })
 </script>
