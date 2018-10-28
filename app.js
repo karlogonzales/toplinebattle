@@ -1,15 +1,26 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var timcards = require('./routes/timcard.route');
+const index = require('./routes/index');
+const users = require('./routes/users');
+const timcards = require('./routes/timcard.route');
 
-var app = express();
+const app = express();
+
+//mongodb setup connection
+const mongoose = require('mongoose');
+let dev_db_url = 'mongodb://admin:admin123@ds143683.mlab.com:43683/timcards';
+let mongoDB = process.env.MONGODB_URI || dev_db_url;
+
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
